@@ -4,5 +4,6 @@ class QuizSettings {
     this.difficulty = difficulty
     this.numberOfQuestions = numberOfQuestions
   }
+  
 }
 module.exports = QuizSettings

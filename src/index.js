@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 /*  This document is created for Quiz project for Coyotiv School of Software engineering. */
-
 const Person = require('./person');
 /* const QuizSettings = require('./quiz-settings'); */
 const Question = require('./questions');

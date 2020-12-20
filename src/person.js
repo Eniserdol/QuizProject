@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+
 class Person {
   constructor(name, answer) {
     this.name = name
