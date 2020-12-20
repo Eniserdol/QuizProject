@@ -1,0 +1,54 @@
+{
+  "name": "quizproject",
+  "version": "0.0.1",
+  "description": "Quizproject for Coyotiv School of software engineering ",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "lint-staged",
+    "start": "node src/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "./**/*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "keywords": [
+    "software",
+    "engineering",
+    "nodejs",
+    "backend"
+  ],
+  "author": "EErdol",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "color": "^3.1.3",
+    "colors": "^1.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eniserdol/QuizProject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Eniserdol/QuizProject/issues"
+  },
+  "homepage": "https://github.com/Eniserdol/QuizProject#readme"
+}
