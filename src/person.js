@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-unused-vars
-const colors = require("colors")
 
 class Person {
-  constructor(name, answer) {
+  constructor(name, id) {
     this.name = name
-    this.answer = answer
+    this.id = id
+    this.answer = []
   }
 
-  get profile() {
-    return `this is a dynamic property.Here is the proof ; ${this.name.red.bold} has answers ${this.answers} for this quiz.`
+  addAnswer(answer) {
+    this.answer.push(answer)
   }
 }
 module.exports = Person
