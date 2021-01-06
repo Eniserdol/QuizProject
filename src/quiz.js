@@ -48,7 +48,7 @@ userAnswerArr.push(userAnswer3)
 // eslint-disable-next-line no-console
 console.log(userAnswerArr)
 
-for (let i = 1; i < 4; i += 1) {
+for (let i = 0; i < 3; i += 1) {
   if (userAnswerArr[i] === myQuestions[i]) {
     correctAns += 1
     // eslint-disable-next-line no-console
