@@ -41,7 +41,7 @@ document.querySelector('.next').addEventListener('click', () => {
     document.querySelector('.question').textContent = questions[i]
     document.querySelector('.questionAnswers').textContent = answers[i]
   } else {
-    document.querySelector('.question').textContent = 'you answered all the questions'
+    document.querySelector('.question').textContent = 'you answered all the questions please start again'
     document.querySelector('.questionAnswers').textContent = ''
   }
 })
