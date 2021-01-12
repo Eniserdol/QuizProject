@@ -1,0 +1,31 @@
+@startuml Quiz_Project class Diagram
+class Person {
+  name: string
+    id: number
+    answer : array
+    password : number
+    email : string
+  constructor(name, id , password,email )
+  addAnswer(answer) {
+  login(userEmail,userPassword)
+  }
+
+class Questions {
+  questions : array
+  answers : array
+  quizAnswers :array
+  newQuestionAdd(questionText, answersText, correctAnswer)
+  getQuestion()
+  getAnswer()
+  getQuizAnswers()
+  getQuestionsLength()
+}
+
+class Quiz {
+
+}
+
+Questions "0..*" --> "1"Quiz
+Person"0..*" --> "0..*"Quiz
+
+@enduml
