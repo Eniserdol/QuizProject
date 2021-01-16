@@ -1,10 +1,11 @@
 @startuml Quiz_Project class Diagram
+
 class Person {
   name: string
-    id: number
-    answer : array
-    password : number
-    email : string
+  id: number
+  answer : array
+  password : number
+  email : string
   constructor(name, id , password,email )
   addAnswer(answer) {
   login(userEmail,userPassword)
@@ -22,10 +23,14 @@ class Questions {
 }
 
 class Quiz {
-
+  type : string
+  timer : boolean
+  level : boolean
 }
 
 Questions "0..*" --> "1"Quiz
+Person"0...*" --> Questions
 Person"0..*" --> "0..*"Quiz
+Quiz"0..*" --> "0..*"Person
 
 @enduml
