@@ -1,0 +1,15 @@
+@startuml
+
+left to right direction
+
+actor "Quiz taker" as user
+package "Quiz"{
+usecase "take quiz " as UC1
+usecase "create question" as UC2
+usecase "comment" as UC3
+}
+user-->UC1
+user-->UC2
+user-->UC3
+
+@enduml
