@@ -1,0 +1,19 @@
+@startuml
+start
+:Choose quiz type;
+:Choose timer;
+:Choose quiz level;
+stop
+
+start
+
+
+while(Current Question) is (next)
+if(NextQuestion)then (no)
+ :quit;
+stop
+endif
+endwhile (quit)
+stop
+
+@enduml

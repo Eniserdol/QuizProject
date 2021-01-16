@@ -1,0 +1,11 @@
+@startuml
+[*]--> Level1: Level 1
+Level1 --> Level2: 5 questions correctly answered
+Level1 -->[*]: Quit
+
+
+Level2 --> Level3: 10 questions correctly answered
+Level2 -->[*]: Quit
+
+
+@enduml
