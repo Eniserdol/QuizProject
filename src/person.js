@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-
-class Person {
+export default class Person {
   constructor(name, id, performanceLevel /* password,email */) {
     this.name = name
     this.id = id
