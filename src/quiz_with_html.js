@@ -11,8 +11,16 @@ let correctAns = 0
   */
 let i = 0
 
+document.querySelector('.settings').addEventListener('click', () => {
+  const difficulty = document.querySelector('.difficulty').value
+  // eslint-disable-next-line no-console
+  const difMessage = Questions.setDifficulty(difficulty)
+  document.querySelector('.settings_info').textContent = difMessage
+})
+
 document.querySelector('.check').addEventListener('click', () => {
   const answer = document.querySelector('.answer').value
+
   if (!answer) {
     document.querySelector('.message').textContent = 'No answer! is given please choose a, b or c ⛔'
   } else if (answer === Questions.getQuizAnswers(i)) {
