@@ -11,7 +11,7 @@ class Person {
   login(userEmail,userPassword)
   }
 
-class Questions {
+class Question {
   questions : array
   answers : array
   quizAnswers :array
@@ -28,8 +28,8 @@ class Quiz {
   level : boolean
 }
 
-Questions "0..*" --> "1"Quiz
-Person"0...*" --> Questions
+Question "0..*" --> "1"Quiz
+Person"0...*" --> Question
 Person"0..*" --> "0..*"Quiz
 Quiz"0..*" --> "0..*"Person
 
