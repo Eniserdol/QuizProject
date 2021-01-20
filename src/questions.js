@@ -31,7 +31,7 @@ export default class Questions {
   }
 
   getQuestionsLength() {
-    return this.questions.length
+    return this.questions[this.difficulty].length
   }
 
   setDifficulty(value) {
