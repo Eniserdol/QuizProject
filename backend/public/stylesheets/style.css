@@ -111,3 +111,12 @@ h1 {
   top: 30rem;
   right: 10rem;
 }
+.newQuestion{
+  position: absolute;
+  top: 20rem;
+}
+.addQuestion{
+  display: block;
+  position: absolute;
+  top: 50rem;
+}

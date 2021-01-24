@@ -53,3 +53,15 @@ document.querySelector('.next').addEventListener('click', () => {
     document.querySelector('.questionAnswers').textContent = ''
   }
 })
+
+document.querySelector('.newQuestion').addEventListener('click', () => {
+  const text = document.querySelector('.text').value
+  const answerA = document.querySelector('.answerA').value
+  const answerB = document.querySelector('.answerB').value
+  const answerC = document.querySelector('.answerC').value
+  const difficulty = document.querySelector('.difficulty').value
+  const correctAnswer = document.querySelector('.correctAnswer').value
+  if (text && answerA && answerB && answerC && difficulty && correctAnswer) {
+    Questions.newQuestionAdd(difficulty, text, [`a:${answerA}`, `b:${answerB}`, `c:${answerC}`], correctAnswer)
+  }
+})

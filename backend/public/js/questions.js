@@ -42,8 +42,9 @@ export default class Questions {
     ]
   }
 
-  newQuestionAdd() {
-    this.questions.push()
+  newQuestionAdd(difficulty, text, choices, correctAnswer) {
+    const object = { difficulty, text, choices, correctAnswer }
+    this.questions.push(object)
   }
 
   setDifficulty(value) {

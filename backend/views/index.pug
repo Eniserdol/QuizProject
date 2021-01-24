@@ -23,4 +23,20 @@ block content
       p.label-score
         | 💯 Score:
         span.score 0
+  .newQuestion
+    button.btn.newQuestion new Question Add
+  .addQuestion
+      label   Question Text
+      input.inp.text(type="string")
+      label   Question Answers A
+      input.inp.answerA(type="string")
+      label   Question Answers B
+      input.inp.answerB(type="string")
+      label   Question Answers C
+      input.inp.answerC(type="string")
+      label   Question Difficulty
+      input.inp.difficulty(type="string")
+      label   Question Correct Answer
+      input.inp.correctAnswer(type="string")
+
   script(src="/js/main.js" type="module")
