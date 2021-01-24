@@ -1,37 +1,49 @@
 export default class Questions {
   constructor() {
     this.difficulty = ''
-    this.questions = {
-      e: ['What is 10/5 ?', 'Who invented JavaScript?', 'What is 2*6'],
-      h: ['What is 100/5 ?', 'Who invented JS?', 'What is 2*60'],
-    }
-    this.answers = {
-      e: [`a: 3 b: 2 c: 5`, `a: Douglas Crockford,b: Sheryl Sandberg, c: Brendan Eich`, `a: 12 b: 3 c: 8`],
-      h: [`a: 30 b: 20 c: 50`, `a:Crockford,b:Sandberg, c:Eich`, `a: 120 b: 30 c: 80`],
-    }
-    this.quizAnswers = ['b', 'c', 'a']
+
+    this.questions = [
+      {
+        difficulty: 'e',
+        text: 'What is 10/5 ?',
+        choices: ['a: 3', 'b: 2', 'c: 5'],
+        correctAnswer: 'b',
+      },
+      {
+        difficulty: 'e',
+        text: 'Who invented JavaScript?',
+        choices: ['a: Douglas Crockford', 'b: Sheryl Sandberg', 'c: Brendan Eich'],
+        correctAnswer: 'c',
+      },
+      {
+        difficulty: 'e',
+        text: 'What is 2*6',
+        choices: ['a: 12', 'b: 3', 'c: 8'],
+        correctAnswer: 'a',
+      },
+      {
+        difficulty: 'h',
+        text: 'What is 100/5 ?',
+        choices: ['a: 30', 'b: 20', 'c: 50'],
+        correctAnswer: 'b',
+      },
+      {
+        difficulty: 'h',
+        text: 'Who invented JS?',
+        choices: ['a: Crockford', 'b: Sandberg', 'c:Eich'],
+        correctAnswer: 'c',
+      },
+      {
+        difficulty: 'h',
+        text: 'What is 2*60',
+        choices: ['a:120', 'b: 30', 'c:80'],
+        correctAnswer: 'a',
+      },
+    ]
   }
 
-  newQuestionAdd(questionText, answersText, correctAnswer) {
-    this.questions.push(questionText)
-    this.answers.push(answersText)
-    this.quizAnswers.push(correctAnswer)
-  }
-
-  getQuestion(index) {
-    return this.questions[this.difficulty][index]
-  }
-
-  getAnswer(index) {
-    return this.answers[this.difficulty][index]
-  }
-
-  getQuizAnswers(index) {
-    return this.quizAnswers[index]
-  }
-
-  getQuestionsLength() {
-    return this.questions[this.difficulty].length
+  newQuestionAdd() {
+    this.questions.push()
   }
 
   setDifficulty(value) {
@@ -44,5 +56,25 @@ export default class Questions {
       return 'difficulty is hard'
     }
     return 'Difficulty is not set please choose easy or hard ⛔'
+  }
+
+  setQuestions() {
+    return this.questions.filter(question => question.difficulty === this.difficulty)
+  }
+
+  getQuestion(index) {
+    return this.setQuestions()[index].text
+  }
+
+  getAnswer(index) {
+    return this.setQuestions()[index].choices
+  }
+
+  getQuizAnswers(index) {
+    return this.setQuestions()[index].correctAnswer
+  }
+
+  getQuestionsLength() {
+    return this.setQuestions().length
   }
 }
