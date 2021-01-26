@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/extensions
-import Que from './questions.js'
-
+// import Que from './questions.js'
+// const Que = require('public/js/questions')
+/*
 const Questions = new Que()
+
 let correctAns = 0
 
 let i = 0
@@ -65,3 +67,4 @@ document.querySelector('.newQuestion').addEventListener('click', () => {
     Questions.newQuestionAdd(difficulty, text, [`a:${answerA}`, `b:${answerB}`, `c:${answerC}`], correctAnswer)
   }
 })
+*/

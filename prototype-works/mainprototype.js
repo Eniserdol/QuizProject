@@ -1,3 +1,5 @@
+/*
+
 // eslint-disable-next-line import/extensions
 import Que from './questions.js'
 
@@ -8,7 +10,7 @@ let correctAns = 0
 /* const quizAnswers = ['b', 'c', 'a']
  const QuestionsModule = ['What is 10/5 ?', 'Who invented JavaScript?', 'What is 2*6']
  const answers = [`a: 3 b: 2 c: 5`, `a: Douglas Crockford,b: Sheryl Sandberg, c: Brendan Eich`, `a: 12 b: 3 c: 8`]
-  */
+
 let i = 0
 
 document.querySelector('.settings').addEventListener('click', () => {
@@ -58,3 +60,5 @@ document.querySelector('.next').addEventListener('click', () => {
     document.querySelector('.questionAnswers').textContent = ''
   }
 })
+
+*/

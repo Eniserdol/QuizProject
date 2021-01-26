@@ -14,18 +14,9 @@
     "eqeqeq": "off",
     "class-methods-use-this": "off"
   },
-
-  "parser": "babel-eslint",
   "settings": {
     "react": {
       "version": "latest"
     }
-  },
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "globals": {
-    "document": false
   }
 }
