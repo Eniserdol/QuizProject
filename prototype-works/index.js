@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 /*  This document is created for Quiz project for Coyotiv School of Software engineering. */
-const Person = require('./person');
+const Person = require('./person')
 /* const QuizSettings = require('./quiz-settings'); */
-const Question = require('./questions');
+const Question = require('./questions')
 
 // create questions here
 const questions = [new Question('whatis', '1', 'what is 10/2?', ['2', '3', '5'], '5')]
@@ -16,11 +16,11 @@ const enis = new Person('enis', '5')
 function score(questions) {
   const userAnswer = enis.answer
   let numCorrect = 0
-  for (let i = 0; i < questions.length; i+=1) {
+  for (let i = 0; i < questions.length; i += 1) {
     // if answer is correct
     if (userAnswer === questions[i].correctAnswer) {
-         // eslint-disable-next-line no-unused-vars
-      numCorrect +=1;
+      // eslint-disable-next-line no-unused-vars
+      numCorrect += 1
     }
   }
 }
