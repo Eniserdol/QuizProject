@@ -1,7 +1,6 @@
-export default class Questions {
+class Questions {
   constructor() {
-    this.difficulty = ''
-
+    this.difficulty = 'e'
     this.questions = [
       {
         difficulty: 'e',
@@ -79,3 +78,5 @@ export default class Questions {
     return this.setQuestions().length
   }
 }
+
+module.exports = Questions
