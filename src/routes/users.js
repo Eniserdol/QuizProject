@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 const express = require('express')
+const controller = require('../models/main')
 
 const router = express.Router()
 
@@ -19,7 +20,7 @@ router.get('/', (req, res) => {
   res.send(result)
 })
 
-router.get('/:userId', (req, res) => {
+router.get('/:id', (req, res) => {
   const user = users[req.params.userId]
 
   if (user) res.render('user', { user })
@@ -27,11 +28,12 @@ router.get('/:userId', (req, res) => {
 })
 
 // create a user
-router.post('/users', (req, res) => {})
+router.post('/', (req, res) => {})
 
 // update a user
-router.patch('/quizes/:id', (req, res) => {})
+router.patch('/:id', (req, res) => {})
 
 // delete user
-router.delete('/quiz/:id', (req, res) => {})
+router.delete('/:id', (req, res) => {})
+
 module.exports = router
