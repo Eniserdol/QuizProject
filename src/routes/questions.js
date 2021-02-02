@@ -5,7 +5,15 @@ const controller = require('../models/main')
 const router = express.Router()
 
 // get all quiz questions
-router.get('/', (req, res) => {})
+router.get('/', (req, res) => {
+  res.send(controller.getQuestionsAll())
+})
+
+// get all questions by difficulty
+router.get('/difficulty/:level', (req, res) => {
+  const { level } = req.params
+  res.send(controller.getQuestionsByDifficulty(level))
+})
 
 // get one quiz question
 router.get('/:id', (req, res) => {
