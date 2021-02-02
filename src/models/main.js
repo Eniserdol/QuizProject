@@ -13,8 +13,29 @@ const getQuestionById = id => {
 const getQuizzesById = id => {
   return Quizzes.getQuiz(id)
 }
+const getQuizzesAll = () => {
+  return Quizzes.getQuizAll()
+}
+const getQuestionsAll = () => {
+  return Questions.getQuestionsAll()
+}
+
+const getQuizzesByDifficulty = level => {
+  return Quizzes.getQuizByDifficulty(level)
+}
+
+const getQuestionsByDifficulty = level => {
+  return Questions.getQuestionsByDifficulty(level)
+}
 /* const getUsersById = id => {
-  return Users.getQuiz(id)
+  return Users.getUser(id)
 }
 */
-module.exports = { getQuestionById, getQuizzesById }
+module.exports = {
+  getQuestionById,
+  getQuizzesById,
+  getQuizzesAll,
+  getQuizzesByDifficulty,
+  getQuestionsAll,
+  getQuestionsByDifficulty,
+}
