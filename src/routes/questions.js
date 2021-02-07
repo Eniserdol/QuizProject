@@ -4,11 +4,16 @@ const controller = require('../models/main')
 
 const router = express.Router()
 
+router.get('/', (req, res) => {
+  res.render('questions', { text: 'hello', title: 'Quiz Project', questions: controller.getQuestionsAll() })
+})
+
+/*
 // get all quiz questions
 router.get('/', (req, res) => {
   res.send(controller.getQuestionsAll())
 })
-
+*/
 // get all questions by difficulty
 router.get('/difficulty/:level', (req, res) => {
   const { level } = req.params
