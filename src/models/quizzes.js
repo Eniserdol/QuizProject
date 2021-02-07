@@ -31,29 +31,17 @@ class Quizzes {
     this.quizzes.push(object)
   }
 
-  setDifficulty(value) {
-    if (value === 'e') {
-      this.difficulty = 'e'
-      return 'difficulty is easy'
-    }
-    if (value === 'h') {
-      this.difficulty = 'h'
-      return 'difficulty is hard'
-    }
-    return 'Difficulty is not set please choose easy or hard ⛔'
-  }
-
   setQuizzes() {
     // return this.quizzes.filter(quizzes => quizzes.difficulty === this.difficulty)
     return this.quizzes.filter(quizzes => quizzes.id === this.id)
   }
 
   getQuiz(index) {
-    return this.setQuizzes()[index].text
+    return this.quizzes[index].text
   }
 
   getQuizAll() {
-    return this.setQuizzes().map(quiz => quiz.text)
+    return this.quizzes.map(quiz => quiz.text)
   }
 
   getQuizByDifficulty(difficulty) {
