@@ -1,5 +1,15 @@
+extends layout
 
-body
+block content
+  head
+    h1= title
+    p Welcome to Quizzes
+  body
+    h1= text
+    ol
+      each val in questions
+        li #{val}
+//-body
     main
     input.difficulty(type="string")
     button.btn.settings Settings
@@ -15,4 +25,22 @@ body
     p.label-score
         | 💯 Score:
         span.score 0
-  script(src="/src/models/main.js" type = "module")
+    script(src="/src/models/main.js" type = "module")
+
+    extends layout
+  block content
+ body
+    .container
+      question-container
+        question Question
+            #answers Answers
+                 button.btn Answer 1
+                 button.btn Answer 2
+                 button.btn Answer 3
+                 button.btn Answer 4
+    .controls
+            #Next Prev_Next
+                button.prev-btn Prev
+                 button.next-btn  Next
+            #controls Controls
+                button.reset-btn Reset/Quit

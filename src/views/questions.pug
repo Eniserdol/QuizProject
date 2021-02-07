@@ -1,3 +1,15 @@
+extends layout
+
+block content
+  head
+    h1= title
+    p Welcome to Questions
+  body
+    h1= text
+    ul
+      each val in questions
+        li #{val}
+
 //- New Question part
   .newQuestion
     button.btn.newQuestion new Question Add
