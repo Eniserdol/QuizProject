@@ -1,6 +1,6 @@
 class Questions {
   constructor() {
-    this.difficulty = ''
+    // this.difficulty = ''
     this.id = ''
     this.questions = [
       {
@@ -53,37 +53,12 @@ class Questions {
     this.questions.push(object)
   }
 
-  setDifficulty(value) {
-    if (value === 'e') {
-      this.difficulty = 'e'
-      return 'difficulty is easy'
-    }
-    if (value === 'h') {
-      this.difficulty = 'h'
-      return 'difficulty is hard'
-    }
-    return 'Difficulty is not set please choose easy or hard ⛔'
-  }
-
-  setQuestions() {
-    // return this.questions.filter(question => question.difficulty === this.difficulty)
-    return this.questions.filter(questions => questions.id === this.id)
-  }
-
   getQuestion(index) {
-    return this.setQuestions()[index].text
-  }
-
-  getAnswer(index) {
-    return this.setQuestions()[index].choices
-  }
-
-  getQuizAnswers(index) {
-    return this.setQuestions()[index].correctAnswer
+    return this.questions[index].text
   }
 
   getQuestionsAll() {
-    return this.setQuestions().map(questions => questions.text)
+    return this.questions.map(questions => questions.text)
   }
 
   getQuestionsByDifficulty(difficulty) {
@@ -91,7 +66,7 @@ class Questions {
   }
 
   getQuestionsLength() {
-    return this.setQuestions().length
+    return this.questions().length
   }
 }
 
