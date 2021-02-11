@@ -4,12 +4,25 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
+require('dotenv').config()
+
+require('./database-connection')
+
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const quizzesRouter = require('./routes/quizzes')
 const questionsRouter = require('./routes/questions')
 
 const app = express()
+
+if (app.get('env') == 'development') {
+  /* eslint-disable-next-line */
+  app.use(require('connect-livereload')())
+  /* eslint-disable-next-line */
+  require('livereload')
+    .createServer({ extraExts: ['pug'] })
+    .watch([`${__dirname}/public`, `${__dirname}/views`])
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -25,6 +38,7 @@ app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/quizzes', quizzesRouter)
 app.use('/questions', questionsRouter)
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404))
