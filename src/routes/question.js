@@ -2,7 +2,7 @@
 const { text } = require('express')
 const express = require('express')
 const controller = require('../models/main')
-const question = require('../models/question')
+const Question = require('../models/question')
 
 const router = express.Router()
 /*
@@ -17,9 +17,13 @@ router.get('/', async (req, res) => {
     query.difficulty = req.query.difficulty
   }
 
-  res.send(await question.find(query))
+  res.send(await Question.find(query))
 })
-
+router.get('/:id', async (req, res) => {
+  const question = await Question.findById(req.params.id)
+  if (question) res.render('question', { question })
+  else res.sendStatus(404)
+})
 /*
 // get all quiz questions
 router.get('/', (req, res) => {
