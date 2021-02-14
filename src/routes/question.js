@@ -1,11 +1,23 @@
 /* eslint-disable no-unused-vars */
+const { text } = require('express')
 const express = require('express')
 const controller = require('../models/main')
+const question = require('../models/question')
 
 const router = express.Router()
+/*
+router.get('/',async (req, res) => {
+  res.render(await 'question', { title: 'Quiz Project', question: question })
+})
+*/
 
-router.get('/', (req, res) => {
-  res.render('question', { text: 'hello', title: 'Quiz Project' })
+router.get('/', async (req, res) => {
+  const query = {}
+  if (req.query.difficulty) {
+    query.difficulty = req.query.difficulty
+  }
+
+  res.send(await question.find(query))
 })
 
 /*
@@ -13,7 +25,7 @@ router.get('/', (req, res) => {
 router.get('/', (req, res) => {
   res.send(controller.getQuestionsAll())
 })
-*/
+
 // get all questions by difficulty
 router.get('/difficulty/:level', (req, res) => {
   const { level } = req.params
@@ -25,6 +37,7 @@ router.get('/:id', (req, res) => {
   const { id } = req.params
   res.send(controller.getQuestionById(id))
 })
+*/
 
 // create one quiz question
 router.post('/', (req, res) => {})

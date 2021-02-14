@@ -1,29 +1,28 @@
 /* eslint-disable no-unused-vars */
 const express = require('express')
-/*
-const controller = require('../models/main')
-*/
+
 const router = express.Router()
 
-const users = [
-  { name: 'enis', age: 35 },
-  { name: 'nde', age: 5 },
-]
+const User = require('../models/user')
+const controller = require('../models/main')
 
 /* GET users listing. */
-router.get('/', (req, res) => {
-  let result = users
-
+router.get('/', async (req, res) => {
+  const query = {}
   if (req.query.name) {
-    result = users.filter(user => user.name == req.query.name)
+    query.name = req.query.name
   }
-
-  res.send(result)
+  if (req.query.level) {
+    query.level = req.query.level
+  }
+  if (req.query.quizResults) {
+    query.quizResults = req.query.quizResults
+  }
+  res.send(await User.find(query))
 })
 
 router.get('/:id', async (req, res) => {
-  const user = users.findById(req.params.userId)
-
+  const user = await User.findById(req.params.id)
   if (user) res.render('user', { user })
   else res.sendStatus(404)
 })
