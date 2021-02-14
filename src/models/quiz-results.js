@@ -1,3 +1,15 @@
+const mongoose = require('mongoose')
+
+const quizResultSchema = new mongoose.Schema({
+  quiz: String,
+  user: String,
+  correctAnswers: [],
+  score: Number,
+})
+
+module.exports = mongoose.model('QuizResult', quizResultSchema)
+
+/*
 class QuizResult {
   constructor(quiz, user, correctAnswers) {
     this.quiz = quiz
@@ -8,3 +20,4 @@ class QuizResult {
 }
 
 module.exports = QuizResult
+*/

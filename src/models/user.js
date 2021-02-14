@@ -1,3 +1,15 @@
+const mongoose = require('mongoose')
+
+const userSchema = new mongoose.Schema({
+  id: Number,
+  name: String,
+  level: String,
+  quizResults: [],
+})
+
+module.exports = mongoose.model('User', userSchema)
+
+/*
 class User {
   constructor(id, name) {
     this.id = id
@@ -7,3 +19,4 @@ class User {
   }
 }
 module.exports = User
+*/

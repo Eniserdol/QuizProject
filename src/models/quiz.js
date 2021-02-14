@@ -1,3 +1,15 @@
+const mongoose = require('mongoose')
+
+const quizSchema = new mongoose.Schema({
+  id: Number,
+  difficulty: String,
+  questions: [],
+  name: String,
+})
+
+module.exports = mongoose.model('Quiz', quizSchema)
+
+/*
 class Quiz {
   constructor(id, difficulty, questions, name) {
     this.id = id
@@ -8,3 +20,4 @@ class Quiz {
 }
 
 module.exports = Quiz
+*/
