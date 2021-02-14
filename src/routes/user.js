@@ -19,11 +19,15 @@ router.get('/', async (req, res) => {
     query.quizResults = req.query.quizResults
   }
   res.send(await User.find(query))
+  /*
+  const user= await User.find(query)
+  res.render('user', { user: user.name, level: user.level })
+*/
 })
 
 router.get('/:id', async (req, res) => {
   const user = await User.findById(req.params.id)
-  if (user) res.render('user', { user })
+  if (user) res.render('user', { user: user.name, level: user.level })
   else res.sendStatus(404)
 })
 
