@@ -9,9 +9,9 @@ require('dotenv').config()
 require('./database-connection')
 
 const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
-const quizzesRouter = require('./routes/quizzes')
-const questionsRouter = require('./routes/questions')
+const userRouter = require('./routes/user')
+const quizRouter = require('./routes/quiz')
+const questionRouter = require('./routes/question')
 
 const app = express()
 
@@ -35,9 +35,9 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
-app.use('/users', usersRouter)
-app.use('/quizzes', quizzesRouter)
-app.use('/questions', questionsRouter)
+app.use('/user', userRouter)
+app.use('/quiz', quizRouter)
+app.use('/question', questionRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
