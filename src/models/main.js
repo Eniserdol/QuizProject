@@ -1,67 +1,30 @@
-/*
-const QuestionClass = require('./question')
-const QuizClass = require('./quiz')
-const UserClass = require('./user')
+/* eslint-disable no-console */
 
-// const Questions = new QuestionsClass()
-const Quiz = new QuizClass()
-// const Users = new UsersClass()
+// const mongoose = require('mongoose')
+const User = require('./user')
+const Quiz = require('./quiz')
+const Question = require('./question')
 
-const getQuestionById = id => {
-  return Questions.getQuestion(id)
-}
-
-const getQuizzesById = id => {
-  return Quizzes.getQuiz(id)
-}
-const getQuizzesAll = () => {
-  return Quizzes.getQuizAll()
-}
-const getQuestionsAll = () => {
-  return Questions.getQuestionsAll()
-}
-
-const getQuizzesByDifficulty = level => {
-  return Quizzes.getQuizByDifficulty(level)
-}
-
-const getQuestionsByDifficulty = level => {
-  return Questions.getQuestionsByDifficulty(level)
-}
-/* const getUsersById = id => {
-  return Users.getUser(id)
-}
-
-module.exports = {
- // getQuestionById,
-  getQuizzesById,
-  getQuizzesAll,
-  getQuizzesByDifficulty,
-  getQuestionsAll,
-  getQuestionsByDifficulty,
-}
-*/
-const mongoose = require('mongoose')
-
-const User = mongoose.model('User', { id: Number, name: String, level: String, quizResults: [] })
+// create user
 const enis = new User({ id: 1, name: 'enis', level: 'easy', quizResults: [] })
-enis.save().then(() => console.log('we have a new user'))
+enis.save()
 
-const Quiz = mongoose.model('Quiz', { id: Number, difficulty: String, questions: [], name: String })
-const quizOne = new Quiz({ id: 1, difficulty: 'easy', questions: [], name: 'Quiz 1 Easy' })
+async function main() {
+  const nde = await User.create({ id: 2, name: 'nde', level: 'easy', quizResults: [] })
+  nde.save()
+}
+main()
+
+// create quiz
+
+const quizOne = new Quiz({ id: 1, difficulty: 'easy', questions: ['1', '2', '3'], name: 'Quiz 1 Easy' })
 const quizTwo = new Quiz({ id: 2, difficulty: 'easy', questions: [], name: 'Quiz 2 Easy' })
 const quizThree = new Quiz({ id: 3, difficulty: 'easy', questions: [], name: 'Quiz 3 Easy' })
-quizOne.save().then(() => console.log('we have a new quiz'))
-quizTwo.save().then(() => console.log('we have a new quiz'))
-quizThree.save().then(() => console.log('we have a new quiz'))
+quizOne.save()
+quizTwo.save()
+quizThree.save()
 
-const Question = mongoose.model('Question', {
-  id: Number,
-  difficulty: String,
-  text: String,
-  choices: [],
-  correctAnswer: String,
-})
+// create question
 const questionOne = new Question({
   id: 1,
   difficulty: 'easy',
