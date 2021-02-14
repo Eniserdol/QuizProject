@@ -5,10 +5,12 @@ block content
     h1= title
     p Welcome to Quizzes
   body
-    h1= text
-    ol
-      each val in quiz
-        li #{val}
+    h2 Quiz Name#{name}
+    h3 Questions #{questions}
+    h4 Answers #{answers}
+      ol
+       each val in quiz
+         li #{val}
 //-body
     main
     input.difficulty(type="string")
