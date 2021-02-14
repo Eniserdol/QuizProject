@@ -5,44 +5,8 @@ block content
     h1= title
     p Welcome to Quizzes
   body
-    h2 Quiz Name#{name}
-    h3 Questions #{questions}
-    h4 Answers #{answers}
-      ol
-       each val in quiz
-         li #{val}
-//-body
-    main
-    input.difficulty(type="string")
-    button.btn.settings Settings
-    .settings_info Please choose difficulty e-Easy, h-Hard
-    button.btn.again_start Again!/Start
-    .question Questions will be shown here
-    .questionAnswers Answers will be shown here
-    .number ?
-    input.answer(type="string")
-    button.btn.check Check!
-    button.btn.next Next!
-    p.message Answer is...
-    p.label-score
-        | 💯 Score:
-        span.score 0
-    script(src="/src/models/main.js" type = "module")
-
-    extends layout
-  block content
- body
-    .container
-      question-container
-        question Question
-            #answers Answers
-                 button.btn Answer 1
-                 button.btn Answer 2
-                 button.btn Answer 3
-                 button.btn Answer 4
-    .controls
-            #Next Prev_Next
-                button.prev-btn Prev
-                 button.next-btn  Next
-            #controls Controls
-                button.reset-btn Reset/Quit
+    h2 Quiz Name: #{name}
+      h3 Questions: #{questions}
+        //- ol
+          each val in questions
+          li= val

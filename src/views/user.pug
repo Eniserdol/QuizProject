@@ -5,7 +5,9 @@ block content
     h1= title
     p Welcome to Users
   body
-    
-     //-ol
+    h2 User Name: #{user}
+    h2 User Level: #{level}
+
+    //-ol
       each val in user
         li #{val}
