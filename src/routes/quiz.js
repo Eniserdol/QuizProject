@@ -5,7 +5,7 @@ const controller = require('../models/main')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  res.render('quizzes', { text: 'hello', title: 'Quiz Project', questions: controller.getQuizzesAll() })
+  res.render('quiz', { text: 'hello', title: 'Quiz Project' })
 })
 
 // get all quizzes

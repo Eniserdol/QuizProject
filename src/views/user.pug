@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  head
+    h1= title
+    p Welcome to Users
+  body
+    h1= text
+    ol
+      each val in user
+        li #{val}

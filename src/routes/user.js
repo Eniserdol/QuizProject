@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 const express = require('express')
+/*
 const controller = require('../models/main')
-
+*/
 const router = express.Router()
 
 const users = [
@@ -20,8 +21,8 @@ router.get('/', (req, res) => {
   res.send(result)
 })
 
-router.get('/:id', (req, res) => {
-  const user = users[req.params.userId]
+router.get('/:id', async (req, res) => {
+  const user = users.findById(req.params.userId)
 
   if (user) res.render('user', { user })
   else res.sendStatus(404)
