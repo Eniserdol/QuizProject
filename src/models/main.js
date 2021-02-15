@@ -17,9 +17,9 @@ main()
 
 // create quiz
 
-const quizOne = new Quiz({ id: 1, difficulty: 'easy', questions: ['1', '2', '3'], name: 'Quiz 1 Easy' })
-const quizTwo = new Quiz({ id: 2, difficulty: 'easy', questions: [], name: 'Quiz 2 Easy' })
-const quizThree = new Quiz({ id: 3, difficulty: 'easy', questions: [], name: 'Quiz 3 Easy' })
+const quizOne = new Quiz({ id: 1, difficulty: 'easy', questions: ['1', '2', '3'], name: 'Quiz 1' })
+const quizTwo = new Quiz({ id: 2, difficulty: 'easy', questions: [], name: 'Quiz 2' })
+const quizThree = new Quiz({ id: 3, difficulty: 'easy', questions: [], name: 'Quiz 3' })
 quizOne.save()
 quizTwo.save()
 quizThree.save()
