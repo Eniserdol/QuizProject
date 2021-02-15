@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  head
+    h1= title
+    p Welcome to Users
+  body
+    ol
+      each user in users
+        li #{user.name} #{user.level}

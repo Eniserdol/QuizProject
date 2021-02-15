@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  head
+    h1= title
+    p Welcome to Quizzes
+  body
+    ol
+      each quiz in quizzes
+        li #{quiz.name}
+        p #{quiz.difficulty}

@@ -9,6 +9,8 @@ const controller = require('../models/main')
 /* GET users listing. */
 router.get('/', async (req, res) => {
   const query = {}
+  const queryItem = ['name', 'level', ' quizresults']
+
   if (req.query.name) {
     query.name = req.query.name
   }
@@ -18,16 +20,19 @@ router.get('/', async (req, res) => {
   if (req.query.quizResults) {
     query.quizResults = req.query.quizResults
   }
-  res.send(await User.find(query))
-  /*
-  const user= await User.find(query)
-  res.render('user', { user: user.name, level: user.level })
-*/
+  let users = await User.find(query)
+  users = users.map(user => {
+    return {
+      name: user.name,
+      level: user.level,
+    }
+  })
+  res.render('user-list', { users })
 })
 
 router.get('/:id', async (req, res) => {
   const user = await User.findById(req.params.id)
-  if (user) res.render('user', { user: user.name, level: user.level })
+  if (user) res.render('user-detail', { user: user.name, level: user.level })
   else res.sendStatus(404)
 })
 

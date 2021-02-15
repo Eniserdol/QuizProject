@@ -5,13 +5,11 @@ block content
     h1= title
     p Welcome to Questions
   body
-
-    h1 Question: #{question.text}
-    h2 Choices: #{question.choices}
-    h3 Diff : #{question.difficulty}
-    //-ul
-      each val in question
-        li #{val}
+    ol
+      each question in questions
+        li #{question.text}
+        p #{question.choices}
+        p #{question.difficulty}
 
 //- New Question part
   .newQuestion

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  head
+    h1= title
+    p Welcome to Questions
+  body
+    h2 Question: #{question.text}
+    h2 Choices: #{question.choices}
+    h2 Diff : #{question.difficulty}
+    
