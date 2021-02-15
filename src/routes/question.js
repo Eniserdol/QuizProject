@@ -5,23 +5,25 @@ const controller = require('../models/main')
 const Question = require('../models/question')
 
 const router = express.Router()
-/*
-router.get('/',async (req, res) => {
-  res.render(await 'question', { title: 'Quiz Project', question: question })
-})
-*/
 
 router.get('/', async (req, res) => {
   const query = {}
   if (req.query.difficulty) {
     query.difficulty = req.query.difficulty
   }
-
-  res.send(await Question.find(query))
+  let questions = await Question.find(query)
+  questions = questions.map(question => {
+    return {
+      text: question.text,
+      choices: question.choices,
+      difficulty: question.difficulty,
+    }
+  })
+  res.render('question-list', { questions })
 })
 router.get('/:id', async (req, res) => {
   const question = await Question.findById(req.params.id)
-  if (question) res.render('question', { question })
+  if (question) res.render('question-detail', { question })
   else res.sendStatus(404)
 })
 /*

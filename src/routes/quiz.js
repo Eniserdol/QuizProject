@@ -6,12 +6,6 @@ const router = express.Router()
 const Quiz = require('../models/quiz')
 const controller = require('../models/main')
 
-/*
-router.get('/', (req, res) => {
-  res.render('quiz', { title: 'Quiz Project', quiz: { quiz } })
-})
-*/
-
 /* GET quiz listing. */
 router.get('/', async (req, res) => {
   const query = {}
@@ -24,32 +18,27 @@ router.get('/', async (req, res) => {
   if (req.query.name) {
     query.name = req.query.name
   }
-  res.send(await Quiz.find(query))
+  let quizzes = await Quiz.find(query)
+  quizzes = quizzes.map(quiz => {
+    return {
+      name: quiz.name,
+      difficulty: quiz.difficulty,
+      questions: quiz.questions,
+    }
+  })
+  let questions = await Quiz.find(query)
+  questions = questions.map(question => {
+    return {
+      questions: quizzes.questions,
+    }
+  })
+  res.render('quiz-list', { quizzes })
 })
 
 router.get('/:id', async (req, res) => {
   const quiz = await Quiz.findById(req.params.id)
-  if (quiz) res.render('quiz', { name: quiz.name, questions: quiz.questions })
+  if (quiz) res.render('quiz-detail', { name: quiz.name, difficulty: quiz.difficulty, questions: quiz.questions })
   else res.sendStatus(404)
-})
-
-/*
-// get all quizzes
-
-router.get('/', (req, res) => {
-  res.send(controller.getQuizzesAll())
-})
-
-// get all quizzes by difficulty
-router.get('/difficulty/:level', (req, res) => {
-  const { level } = req.params
-  res.send(controller.getQuizzesByDifficulty(level))
-})
-
-// get one quiz
-router.get('/:id', (req, res) => {
-  const { id } = req.params
-  res.send(controller.getQuizzesById(id))
 })
 
 // create a quiz
@@ -60,5 +49,5 @@ router.put('/:id', (req, res) => {})
 
 // delete one quiz
 router.delete('/:id', (req, res) => {})
-*/
+
 module.exports = router
