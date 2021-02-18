@@ -9,17 +9,21 @@ const controller = require('../models/main')
 /* GET users listing. */
 router.get('/', async (req, res) => {
   const query = {}
-  const queryItem = ['name', 'level', ' quizresults']
+  ;['name', 'level', 'quizResults'].forEach(key => {
+    if (req.query[key]) {
+      query[key] = req.query[key]
+    }
+  })
 
-  if (req.query.name) {
-    query.name = req.query.name
-  }
-  if (req.query.level) {
-    query.level = req.query.level
-  }
-  if (req.query.quizResults) {
-    query.quizResults = req.query.quizResults
-  }
+  // if (req.query.name) {
+  //   query.name = req.query.name
+  // }
+  // if (req.query.level) {
+  //   query.level = req.query.level
+  // }
+  // if (req.query.quizResults) {
+  //   query.quizResults = req.query.quizResults
+  // }
   let users = await User.find(query)
   users = users.map(user => {
     return {

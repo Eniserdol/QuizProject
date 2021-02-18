@@ -9,15 +9,20 @@ const controller = require('../models/main')
 /* GET quiz listing. */
 router.get('/', async (req, res) => {
   const query = {}
-  if (req.query.id) {
-    query.id = req.query.id
-  }
-  if (req.query.difficulty) {
-    query.difficulty = req.query.difficulty
-  }
-  if (req.query.name) {
-    query.name = req.query.name
-  }
+  ;['difficulty', 'name'].forEach(key => {
+    if (req.query[key]) {
+      query[key] = req.query[key]
+    }
+  })
+  // if (req.query.id) {
+  //   query.id = req.query.id
+  // }
+  // if (req.query.difficulty) {
+  //   query.difficulty = req.query.difficulty
+  // }
+  // if (req.query.name) {
+  //   query.name = req.query.name
+  // }
   let quizzes = await Quiz.find(query)
   quizzes = quizzes.map(quiz => {
     return {
@@ -26,19 +31,21 @@ router.get('/', async (req, res) => {
       questions: quiz.questions,
     }
   })
-  let questions = await Quiz.find(query)
-  questions = questions.map(question => {
-    return {
-      questions: quizzes.questions,
-    }
-  })
+  // let questions = await Quiz.find(query)
+  // questions = questions.map(question => {
+  //   return {
+  //     questions: quizzes.questions
+
+  //   }
+  // })
   res.render('quiz-list', { quizzes })
 })
 
 router.get('/:id', async (req, res) => {
   const quiz = await Quiz.findById(req.params.id)
   if (quiz) res.render('quiz-detail', { name: quiz.name, difficulty: quiz.difficulty, questions: quiz.questions })
-  else res.sendStatus(404)
+
+  //  else res.sendStatus(404)
 })
 
 // create a quiz
