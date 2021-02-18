@@ -7,5 +7,6 @@ block content
   body
     ol
       each quiz in quizzes
-        li #{quiz.name}
-        p #{quiz.difficulty}
+        li.active
+          a(href= '/quiz?name='+  quiz.name)  #{quiz.name}
+          p #{quiz.difficulty}
