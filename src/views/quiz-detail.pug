@@ -8,6 +8,9 @@ block content
     h2 Quiz Name: #{name}
     h2 Quiz Difficulty: #{difficulty}
     h2 Quiz Questions:
-     il
-       each question in questions
-          li #{question}
+    ol
+      each question in questions
+        li  #{question.text}
+          ul
+            each choice in question.choices
+              li #{choice}
