@@ -6,6 +6,8 @@ block content
     p Welcome to Questions
   body
     h2 Question: #{question.text}
-    h2 Choices: #{question.choices}
-    h2 Diff : #{question.difficulty}
-    
+    h2 Choices:
+     il
+        each choice in question.choices
+          li #{choice}
+           input(type='radio')
