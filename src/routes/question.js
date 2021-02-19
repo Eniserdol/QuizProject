@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
       text: question.text,
       choices: question.choices,
       difficulty: question.difficulty,
+      id: question.id,
     }
   })
   res.render('question-list', { questions })

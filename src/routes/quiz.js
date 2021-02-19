@@ -29,6 +29,7 @@ router.get('/', async (req, res) => {
       name: quiz.name,
       difficulty: quiz.difficulty,
       questions: quiz.questions,
+      id: quiz.id,
     }
   })
   // let questions = await Quiz.find(query)
