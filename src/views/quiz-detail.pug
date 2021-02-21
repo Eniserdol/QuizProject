@@ -11,7 +11,8 @@ block content
     ol
       each question in questions
         li  #{question.text}
-          ul
-            each choice in question.choices
-              p #{choice}
-                 input(type='radio' )
+          each choice in question.choices
+             p #{choice}
+              input(type='radio' name= `${question.text}` checked=false)
+
+      input(type="submit")

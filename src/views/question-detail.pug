@@ -10,4 +10,4 @@ block content
      il
         each choice in question.choices
           li #{choice}
-           input(type='radio')
+           input(type='radio' name= `${question.text}` checked=false)
