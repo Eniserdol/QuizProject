@@ -48,20 +48,7 @@ const questions = [
   { difficulty: 'hard', text: 'What is 8+8', choices: ['14', '15', '16'], correctAnswer: '16' },
   { difficulty: 'hard', text: 'What is 9+9', choices: ['16', '18', '20'], correctAnswer: '18' },
 ]
-// create quiz
-const quizzes = [
-  { difficulty: 'easy', questions: [questions[0], questions[1], questions[2]], name: 'Quiz1' },
-  {
-    difficulty: 'easy',
-    questions: [questions[3], questions[4], questions[5]],
-    name: 'Quiz2',
-  },
-  {
-    difficulty: 'hard',
-    questions: [questions[6], questions[7], questions[8]],
-    name: 'Quiz3',
-  },
-]
+
 // create user
 const users = [
   { name: 'enis', level: 'easy', quizResults: [] },
@@ -77,7 +64,25 @@ async function anything() {
   // for (const question of questions) {
   //   await Question.create(question)
   // }
-  await Question.create(questions)
+  const createdQuestions = await Question.create(questions)
+  // create quiz
+  const quizzes = [
+    {
+      difficulty: 'easy',
+      questions: [createdQuestions[0], createdQuestions[1], createdQuestions[2]],
+      name: 'Quiz1',
+    },
+    {
+      difficulty: 'easy',
+      questions: [createdQuestions[3], createdQuestions[4], createdQuestions[5]],
+      name: 'Quiz2',
+    },
+    {
+      difficulty: 'hard',
+      questions: [createdQuestions[6], createdQuestions[7], createdQuestions[8]],
+      name: 'Quiz3',
+    },
+  ]
   await Quiz.create(quizzes)
   await User.create(users)
 
