@@ -43,7 +43,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-  const quiz = await Quiz.findById(req.params.id)
+  const quiz = await Quiz.findById(req.params.id).populate('questions')
   if (quiz) res.render('quiz-detail', { name: quiz.name, difficulty: quiz.difficulty, questions: quiz.questions })
 
   //  else res.sendStatus(404)
