@@ -2,7 +2,12 @@ const mongoose = require('mongoose')
 
 const quizSchema = new mongoose.Schema({
   difficulty: String,
-  questions: [],
+  questions: [
+    {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'Question',
+    },
+  ],
   name: String,
 })
 
