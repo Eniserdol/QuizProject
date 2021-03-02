@@ -34,19 +34,65 @@ const Question = require('./question')
 // create question
 const questions = [
   {
+    difficulty: 'middle',
+    text: 'What is try docker',
+    choices: ['1', '2', '3'],
+    correctAnswer: '2',
+  },
+  {
     difficulty: 'easy',
     text: 'What is 1+1',
     choices: ['1', '2', '3'],
     correctAnswer: '2',
   },
-  { difficulty: 'easy', text: 'What is 2+2', choices: ['4', '5', '6'], correctAnswer: '4' },
-  { difficulty: 'easy', text: 'What is 3+3', choices: ['3', '5', '6'], correctAnswer: '6' },
-  { difficulty: 'easy', text: 'What is 4+4', choices: ['4', '8', '10'], correctAnswer: '8' },
-  { difficulty: 'easy', text: 'What is 5+5', choices: ['40', '50', '60'], correctAnswer: '40' },
-  { difficulty: 'easy', text: 'What is 6+6', choices: ['12', '15', '20'], correctAnswer: '12' },
-  { difficulty: 'hard', text: 'What is 7+7', choices: ['14', '15', '16'], correctAnswer: '14' },
-  { difficulty: 'hard', text: 'What is 8+8', choices: ['14', '15', '16'], correctAnswer: '16' },
-  { difficulty: 'hard', text: 'What is 9+9', choices: ['16', '18', '20'], correctAnswer: '18' },
+  {
+    difficulty: 'easy',
+    text: 'What is 2+2',
+    choices: ['4', '5', '6'],
+    correctAnswer: '4',
+  },
+  {
+    difficulty: 'easy',
+    text: 'What is 3+3',
+    choices: ['3', '5', '6'],
+    correctAnswer: '6',
+  },
+  {
+    difficulty: 'easy',
+    text: 'What is 4+4',
+    choices: ['4', '8', '10'],
+    correctAnswer: '8',
+  },
+  {
+    difficulty: 'easy',
+    text: 'What is 5+5',
+    choices: ['40', '50', '60'],
+    correctAnswer: '40',
+  },
+  {
+    difficulty: 'easy',
+    text: 'What is 6+6',
+    choices: ['12', '15', '20'],
+    correctAnswer: '12',
+  },
+  {
+    difficulty: 'hard',
+    text: 'What is 7+7',
+    choices: ['14', '15', '16'],
+    correctAnswer: '14',
+  },
+  {
+    difficulty: 'hard',
+    text: 'What is 8+8',
+    choices: ['14', '15', '16'],
+    correctAnswer: '16',
+  },
+  {
+    difficulty: 'hard',
+    text: 'What is 9+9',
+    choices: ['16', '18', '20'],
+    correctAnswer: '18',
+  },
 ]
 
 // create user
