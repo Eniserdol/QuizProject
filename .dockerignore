@@ -1,0 +1,8 @@
+node_modules
+.eslintrc.json
+.prettierignore
+.gitignore
+.prettierrc
+.dockerfile
+
+prototype-works

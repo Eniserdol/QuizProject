@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    image: quizdocker
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      # - MONGODB_USERNAME=
+      # - MONGODB_PASSWORD=
+      # - MONGODB_DATABASE=
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/enis
+    ports:
+      - 3000:3000
+      - 35729:35729
+    volumes:
+      - ./src:/app/src
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
