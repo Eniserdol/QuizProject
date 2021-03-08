@@ -3,6 +3,7 @@ node_modules
 .prettierignore
 .gitignore
 .prettierrc
-.dockerfile
+.Dockerfile
+.Dockerfile.production
 
 prototype-works
