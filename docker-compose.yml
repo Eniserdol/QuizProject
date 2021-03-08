@@ -4,18 +4,16 @@ services:
     image: quizdocker
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     environment:
-      # - MONGODB_USERNAME=
-      # - MONGODB_PASSWORD=
-      # - MONGODB_DATABASE=
       - MONGODB_CONNECTION_STRING=mongodb://mongo/enis
     ports:
       - 3000:3000
       - 35729:35729
     volumes:
       - ./src:/app/src
+      - ./test:/app/test
   mongo:
     image: mongo
     ports:
-      - 27017:27017
+      - 27018:27017
