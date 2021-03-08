@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node ./bin/www",
     "lint": "lint-staged",
-    "lint-all": "pretty-quick && eslint"
+    "lint-all": "pretty-quick && eslint",
+    "test": "jest --testEnvironment=node --verbose --watchAll --maxWorkers=1",
+    "test-coverage": " jest --collect-coverage --testEnvironment=node --maxWorkers=1"
   },
   "husky": {
     "hooks": {
@@ -24,11 +26,13 @@
   "author": "eerdol",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "jest": "^26.6.3",
     "mongoose": "^5.11.15",
     "mongoose-autopopulate": "^0.12.3",
     "morgan": "~1.9.1",
@@ -47,6 +51,7 @@
     "lint-staged": "^10.2.11",
     "livereload": "^0.9.1",
     "prettier": "2.0.5",
-    "pretty-quick": "^2.0.1"
+    "pretty-quick": "^2.0.1",
+    "supertest": "^6.1.3"
   }
 }
