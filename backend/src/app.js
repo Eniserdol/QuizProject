@@ -20,7 +20,7 @@ if (app.get('env') == 'development') {
   app.use(require('connect-livereload')())
   /* eslint-disable-next-line */
   require('livereload')
-    .createServer({ extraExts: ['pug'], CHOKIDAR_usePolling: true })
+    .createServer({ extraExts: ['pug'], usePolling: true })
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
 
@@ -34,10 +34,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', indexRouter)
-app.use('/user', userRouter)
-app.use('/quiz', quizRouter)
-app.use('/question', questionRouter)
+app.use('/api', indexRouter)
+app.use('/api/users', userRouter)
+app.use('/api/quizzes', quizRouter)
+app.use('/api/questions', questionRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

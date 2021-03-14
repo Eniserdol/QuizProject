@@ -18,5 +18,9 @@
     "react": {
       "version": "latest"
     }
+  },
+  "plugins": ["jest"],
+  "env": {
+    "jest/globals": true
   }
 }

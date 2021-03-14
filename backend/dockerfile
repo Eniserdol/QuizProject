@@ -10,4 +10,4 @@ RUN npm install
 
 ADD bin ./bin
 
-CMD ["nodemon","-L","--inspect=0.0.0.0"]
+CMD ["nodemon","-L"]

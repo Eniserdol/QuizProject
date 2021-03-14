@@ -41,7 +41,11 @@ router.get('/:id', async (req, res) => {
 })
 
 // create a user
-router.post('/', (req, res) => {})
+router.post('/', async (req, res) => {
+  const createdUser = await User.create(req.body)
+  console.log(createdUser, 'stop')
+  res.send(createdUser)
+})
 
 // update a user
 router.patch('/:id', (req, res) => {})
