@@ -8,5 +8,5 @@ block content
     ol
       each question in questions
         li.active
-          a(href= '/question/'+  question.id) #{question.text}
+          a(href= './questions/'+  question.id) #{question.text}
           p #{question.difficulty}
