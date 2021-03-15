@@ -39,7 +39,8 @@ router.get('/', async (req, res) => {
 
   //   }
   // })
-  res.render('quiz-list', { quizzes })
+  // res.render('quiz-list', { quizzes })
+  res.send( quizzes)
 })
 
 router.get('/:id', async (req, res) => {

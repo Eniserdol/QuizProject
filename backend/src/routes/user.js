@@ -31,7 +31,8 @@ router.get('/', async (req, res) => {
       level: user.level,
     }
   })
-  res.render('user-list', { users })
+  // res.render('user-list', { users })
+  res.send(users )
 })
 
 router.get('/:id', async (req, res) => {

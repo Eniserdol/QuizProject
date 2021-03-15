@@ -20,7 +20,8 @@ router.get('/', async (req, res) => {
       id: question.id,
     }
   })
-  res.render('question-list', { questions })
+  // res.render('question-list', { questions })
+  res.send( questions )
 })
 router.get('/:id', async (req, res) => {
   const question = await Question.findById(req.params.id)
