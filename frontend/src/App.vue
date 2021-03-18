@@ -1,9 +1,7 @@
 <template lang="pug">
   #app
-    h1 Quiz Project
-    #nav
-      router-link(to="/") Home |&nbsp;
-      router-link(to="/about") About
+
+    
     router-view
 </template>
 

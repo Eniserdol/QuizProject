@@ -2,10 +2,11 @@
 export default {
   name: 'QuizCard',
   props: ['quiz'],
-  data() {}
+  data() {
+    return {}
+  }
 }
 </script>
-
 <template lang="pug">
 .box
   h2  {{ quiz.name }} {{quiz.difficulty}}
