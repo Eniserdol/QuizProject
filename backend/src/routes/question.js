@@ -21,11 +21,11 @@ router.get('/', async (req, res) => {
     }
   })
   // res.render('question-list', { questions })
-  res.send( questions )
+  res.send(questions)
 })
 router.get('/:id', async (req, res) => {
   const question = await Question.findById(req.params.id)
-  if (question) res.render('question-detail', { question })
+  if (question) res.send(question)
   else res.sendStatus(404)
 })
 /*
