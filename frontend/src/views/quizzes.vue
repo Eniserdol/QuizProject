@@ -3,6 +3,7 @@
 import axios from 'axios'
 import QuizCard from '@/components/quiz-card.vue'
 import Counter from '@/components/counter.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'Quizzes',
@@ -16,8 +17,11 @@ export default {
     }
   },
   async created() {
-    const quizRequest = await axios.get('/api/quizzes')
-    this.quizzes = quizRequest.data
+    this.quizzes = await this.fetchQuizzes()
+  },
+
+  methods: {
+    ...mapActions(['fetchQuizzes'])
   }
 }
 </script>

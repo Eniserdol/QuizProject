@@ -20,6 +20,14 @@ export default new Vuex.Store({
   actions: {
     incrementCount({ commit }) {
       commit(mutations.INCREMENT_COUNT)
+    },
+    async fetchQuiz(store, id) {
+      const quizRequest = await axios.get(`/api/quizzes/${id}`)
+      return quizRequest.data
+    },
+    async fetchQuizzes() {
+      const quizzesRequest = await axios.get('/api/quizzes')
+      return quizzesRequest.data
     }
   },
   modules: {}
