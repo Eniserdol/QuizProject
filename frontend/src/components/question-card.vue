@@ -10,9 +10,11 @@ export default {
 <template lang="pug">
 .box
   h2 Question: {{ question.text}}
-  .box
-    h2 Choices: {{question.choices}}
-
+  h2 Choices:
+  ul
+    li(v-for="choice in question.choices")
+      input(type="radio" :name="`${question._id}-choice`")
+      |{{choice}}
 </template>
 
 <style lang="scss" scoped>
