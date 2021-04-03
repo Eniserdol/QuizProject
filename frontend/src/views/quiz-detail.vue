@@ -29,6 +29,7 @@ export default {
     h1 Please complete your quiz
       question-card(v-for="question in quiz.questions" :question='question')
 
-    Counter
 
+    Counter
+    input.btn.btn-success(type='submit', value='Submit')
 </template>
