@@ -8,9 +8,11 @@ export default {
 }
 </script>
 <template lang="pug">
-.box
+form.box
   h2
   router-link(:to="`/quizzes/${quiz.id}`") {{quiz.name}} {{quiz.difficulty}}
+
+
 </template>
 
 <style lang="scss" scoped>
