@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 const express = require('express')
+const axios = require('axios')
 
 const router = express.Router()
 
@@ -14,15 +15,6 @@ router.get('/', async (req, res) => {
       query[key] = req.query[key]
     }
   })
-  // if (req.query.id) {
-  //   query.id = req.query.id
-  // }
-  // if (req.query.difficulty) {
-  //   query.difficulty = req.query.difficulty
-  // }
-  // if (req.query.name) {
-  //   query.name = req.query.name
-  // }
   let quizzes = await Quiz.find(query)
   quizzes = quizzes.map(quiz => {
     return {
@@ -32,22 +24,13 @@ router.get('/', async (req, res) => {
       id: quiz.id,
     }
   })
-  // let questions = await Quiz.find(query)
-  // questions = questions.map(question => {
-  //   return {
-  //     questions: quizzes.questions
-
-  //   }
-  // })
-  // res.render('quiz-list', { quizzes })
   res.send(quizzes)
 })
 
 router.get('/:id', async (req, res) => {
   const quiz = await Quiz.findById(req.params.id).populate('questions')
   if (quiz) res.send(quiz)
-
-  //  else res.sendStatus(404)
+  else res.sendStatus(404)
 })
 
 // create a quiz

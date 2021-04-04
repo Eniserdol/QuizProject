@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+const axios = require('axios')
 const { text } = require('express')
 const express = require('express')
 const controller = require('../models/main')
@@ -28,25 +29,6 @@ router.get('/:id', async (req, res) => {
   if (question) res.send(question)
   else res.sendStatus(404)
 })
-/*
-// get all quiz questions
-router.get('/', (req, res) => {
-  res.send(controller.getQuestionsAll())
-})
-
-// get all questions by difficulty
-router.get('/difficulty/:level', (req, res) => {
-  const { level } = req.params
-  res.send(controller.getQuestionsByDifficulty(level))
-})
-
-// get one quiz question
-router.get('/:id', (req, res) => {
-  const { id } = req.params
-  res.send(controller.getQuestionById(id))
-})
-*/
-
 // create one quiz question
 router.post('/', (req, res) => {})
 
