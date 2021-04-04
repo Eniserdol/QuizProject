@@ -9,7 +9,9 @@ export default {
 </script>
 <template lang="pug">
 .box
+  h4 Category: {{question.category}}
   h2 Question: {{ question.text}}
+
   h2 Choices:
   ul
     li(v-for="choice in question.choices")
