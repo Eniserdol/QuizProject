@@ -6,6 +6,4 @@
     #nav
       router-link(to="/quizzes") Start
     router-view
-  body
-
 </template>
