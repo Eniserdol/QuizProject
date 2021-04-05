@@ -1,21 +1,14 @@
 const mongoose = require('mongoose')
+const passportLocalMongoose = require('passport-local-mongoose')
 
 const userSchema = new mongoose.Schema({
   name: String,
-  level: String,
-  quizResults: [],
+  // level: String,
+  age: Number,
+  //  quizResults: [],
 })
-
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: 'email',
+})
 module.exports = mongoose.model('User', userSchema)
 
-/*
-class User {
-  constructor(id, name) {
-    this.id = id
-    this.name = name
-    this.level = 'easy'
-    this.quizResults = []
-  }
-}
-module.exports = User
-*/
