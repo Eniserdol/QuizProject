@@ -3,15 +3,15 @@
 // const mongoose = require('mongoose')
 // eslint-disable-next-line no-unused-vars
 const axios = require('axios')
-const User = require('./user')
+// const User = require('./user')
 const Quiz = require('./quiz')
 const Question = require('./question')
 
 // create user
-const users = [
-  { name: 'enis', level: 'easy', quizResults: [] },
-  { name: 'nde', level: 'easy', quizResults: [] },
-]
+// const users = [
+//   { name: 'enis', level: 'easy', quizResults: [] },
+//   { name: 'nde', level: 'easy', quizResults: [] },
+// ]
 const answerArray = results => {
   return results.map(question => {
     const choices = question.incorrect_answers.concat(question.correct_answer)
@@ -25,13 +25,12 @@ const answerArray = results => {
     }
   })
 }
-
 async function anything() {
   await Question.remove({})
   await Quiz.remove({})
   // await User.remove({})
 
-   const questionRequest1 = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple')
+  const questionRequest1 = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple')
 
   const questionRequest2 = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple')
 
@@ -67,6 +66,6 @@ async function anything() {
     },
   ]
   await Quiz.create(quizzes)
-  await User.create(users)
+  // await User.create(users)
 }
 anything()
