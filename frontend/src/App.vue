@@ -1,7 +1,16 @@
+
+<script>
+import axios from 'axios'
+export default{
+  name: 'App',
+  async created() {
+   console.log((await axios.get('/api/session')).data)
+  }
+
+}
+</script>
 <template lang="pug">
   #app
-
-    
     router-view
 </template>
 
