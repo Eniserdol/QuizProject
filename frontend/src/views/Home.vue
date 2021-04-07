@@ -2,8 +2,8 @@
   .home
 
     h1 Welcome
-    h2 please click Start for defined quizzes or define your quiz
+    h2 Please Click Start for Quizzes
     #nav
-      router-link(to="/quizzes") Start
+      router-link.start-btn(to="/quizzes") Start
     router-view
 </template>

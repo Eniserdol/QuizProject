@@ -9,17 +9,10 @@ export default {
 </script>
 <template lang="pug">
 form.box
-  h2
-  router-link(:to="`/quizzes/${quiz.id}`") {{quiz.name}} {{quiz.difficulty}}
+  h2 {{quiz.name}}
+  h3 {{quiz.difficulty}}
+  router-link.start-btn(:to="`/quizzes/${quiz.id}`") Start
+
 
 
 </template>
-
-<style lang="scss" scoped>
-.box {
-  padding: 2rem;
-  border: 1px solid rgb(51, 51, 51);
-  background: rgb(194, 172, 194);
-  border-radius: 0.3rem;
-}
-</style>

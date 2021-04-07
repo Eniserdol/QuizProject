@@ -26,8 +26,17 @@ export default {
 }
 </script>
 <template lang="pug">
-  .quiz
+  .container
     h1 Please choose your quiz
+    .quizzes
       quiz-card(v-for="quiz in quizzes" :quiz='quiz')
     Counter
 </template>
+<style>
+.quizzes{
+  display: flex;
+  gap:1rem;
+  justify-content: center;
+
+}
+</style>

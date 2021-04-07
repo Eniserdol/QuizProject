@@ -25,8 +25,8 @@ export default {
 }
 </script>
 <template lang="pug">
-  .quiz(v-if="quiz")
-    h1 Please complete your quiz
+  .container(v-if="quiz")
+    h3 Please complete your quiz
       question-card(v-for="question in quiz.questions" :question='question')
 
 
