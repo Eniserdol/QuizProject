@@ -6,8 +6,7 @@ const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 require('dotenv').config()
-const passport= require('passport')
-
+const passport = require('passport')
 
 const mongooseConnection = require('./database-connection')
 // require('./database-connection')
@@ -17,7 +16,7 @@ const quizRouter = require('./routes/quiz')
 const questionRouter = require('./routes/question')
 const accountRouter = require('./routes/account')
 
-const  secretp= process.env.SECRET
+const secretp = process.env.SECRET
 const app = express()
 
 if (app.get('env') == 'development') {
@@ -48,8 +47,8 @@ app.use(
     },
   })
 )
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize())
+app.use(passport.session())
 
 const User = require('./models/user')
 
@@ -57,10 +56,6 @@ passport.use(User.createStrategy())
 
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
-
-
-
-
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', indexRouter)
@@ -82,14 +77,13 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500)
-  
+
   res.send({
     status: err.status,
     message: err.message,
     stack: req.app.get('env') == 'development' ? err.stack : '',
   })
 })
-
 
 console.log('i am alive   ')
 
