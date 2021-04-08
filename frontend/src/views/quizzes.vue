@@ -33,10 +33,9 @@ export default {
     Counter
 </template>
 <style>
-.quizzes{
+.quizzes {
   display: flex;
-  gap:1rem;
+  gap: 1rem;
   justify-content: center;
-
 }
 </style>
