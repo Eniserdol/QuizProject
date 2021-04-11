@@ -1,8 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import io from 'socket.io-client'
 
 Vue.use(Vuex)
+
+const socket = io()
+socket.on('hello world!', () => {
+  console.log('we received message from the websocket server!')
+})
+// setInterval(() => {
+//   const number = Math.random()
+//   console.log(`i'm sending out a request`, number)
+//   socket.emit('new message', number, res => {
+//     console.log('this is a response', res)
+//   })
+
+//   socket.emit('another api', res => {
+//     console.log(res)
+//   })
+// }, 3000)
+
+
 
 const mutations = {
   INCREMENT_COUNT: 'increment count',

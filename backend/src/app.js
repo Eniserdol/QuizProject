@@ -9,6 +9,9 @@ require('dotenv').config()
 const passport = require('passport')
 
 const mongooseConnection = require('./database-connection')
+
+const socketService = require('./socket-service')
+
 // require('./database-connection')
 const indexRouter = require('./routes/index')
 const userRouter = require('./routes/user')
@@ -27,6 +30,8 @@ if (app.get('env') == 'development') {
     .createServer({ extraExts: ['pug'], usePolling: true })
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
+
+app.set('io',socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
