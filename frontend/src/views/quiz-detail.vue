@@ -27,8 +27,7 @@ export default {
 <template lang="pug">
   .container(v-if="quiz")
     h3 Please complete your quiz
-    
-      question-card(v-for="question in quiz.questions" :question='question')
+          question-card(v-for="question in quiz.questions" :question='question')
     Counter
     input.btn.btn-success(type='submit', value='Submit')
 </template>

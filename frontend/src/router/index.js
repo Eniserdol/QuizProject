@@ -8,7 +8,6 @@ import Login from '../views/login.vue'
 import Register from '../views/register.vue'
 
 
-
 Vue.use(VueRouter)
 
 export default function init(store) {
@@ -35,11 +34,11 @@ export default function init(store) {
         component: QuizDetail,
         component: () => import(/* webpackChunkName: 'about' */ '../views/quiz-detail.vue')
       },
-      {
-        path: '/',
-        name: 'UserList',
-        component: UserList
-      },
+      // {
+      //   path: '/',
+      //   name: 'UserList',
+      //   component: UserList
+      // },
       {
         path: '/users/:id',
         name: 'UserDetail',
