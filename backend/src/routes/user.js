@@ -10,22 +10,37 @@ const controller = require('../models/main')
 /* GET users listing. */
 router.get('/', async (req, res) => {
   const query = {}
-  ;['name', 'level', 'quizResults'].forEach(key => {
-    if (req.query[key]) {
-      query[key] = req.query[key]
-    }
-  })
-  let users = await User.find(query)
-  users = users.map(user => {
-    return {
-      name: user.name,
-      age: user.age,
-      level: user.level,
-    }
-  })
-  // res.render('user-list', { users })
-  res.send(users)
+
+  if (req.query.name) {
+    query.name = req.query.name
+  }
+
+  if (req.query.age) {
+    query.age = req.query.age
+  }
+
+  res.send(await User.find(query))
 })
+
+
+// router.get('/', async (req, res) => {
+//   const query = {}
+//   ;['name', 'age'].forEach(key => {
+//     if (req.query[key]) {
+//       query[key] = req.query[key]
+//     }
+//   })
+//   let users = await User.find(query)
+//   users = users.map(user => {
+//     return {
+//       name: user.name,
+//       age: user.age,
+      // level: user.level,
+  //   }
+  // })
+  // res.render('user-list', { users })
+//   res.send(users)
+// })
 
 // create a user
 router.post('/', async (req, res) => {
@@ -38,11 +53,11 @@ router.post('/', async (req, res) => {
   res.send(createdUser)
 })
 
-// router.get('/:id', async (req, res) => {
-//   const user = await User.findById(req.params.id)
-//   if (user) res.render('user-detail', { user: user.name, level: user.level })
-//   else res.sendStatus(404)
-// })
+router.get('/:id', async (req, res) => {
+  const user = await User.findById(req.params.id)
+  if (user) res.render('user-detail', { user: user.name, age: user.age })
+  else res.sendStatus(404)
+})
 
 router.get('/initialize', async (req, res) => {
   const mihri = new User({ name: 'mihri', age: 35, email: 'mihri@coyotiv.com' })
@@ -60,6 +75,17 @@ router.get('/initialize', async (req, res) => {
   steve.bio = 'An awesome hacker who has seen it all, and now sharing them all with you.'
   steve.save()
   res.sendStatus(200)
+})
+router.get('/:userId', async (req, res) => {
+  const user = await User.findById(req.params.userId)
+
+  if (user) res.send(user)
+  else res.sendStatus(404)
+})
+
+router.get('/:userId/json', async (req, res) => {
+  const user = await User.findById(req.params.userId)
+  res.send(user)
 })
 
 // update a user
