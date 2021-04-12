@@ -3,10 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Quizzes from '../views/quizzes.vue'
 import QuizDetail from '../views/quiz-detail.vue'
-import UserList from '../views/user-list.vue'
+import Profile from '../views/profile.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
-
 
 Vue.use(VueRouter)
 
@@ -36,8 +35,8 @@ export default function init(store) {
       },
       // {
       //   path: '/',
-      //   name: 'UserList',
-      //   component: UserList
+      //   name: 'Profile',
+      //   component: Profile
       // },
       {
         path: '/users/:id',
@@ -68,7 +67,7 @@ export default function init(store) {
       {
         path: '/profile',
         name: 'profile',
-        component: UserList,
+        component: Profile,
         beforeEnter(to, from, next) {
           if (!store.state.user) return next('/login')
           return next()
