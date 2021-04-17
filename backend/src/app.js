@@ -7,6 +7,7 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 require('dotenv').config()
 const passport = require('passport')
+const cors = require('cors')
 
 const mongooseConnection = require('./database-connection')
 
@@ -22,6 +23,13 @@ const accountRouter = require('./routes/account')
 const secretp = process.env.SECRET
 const app = express()
 
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+)
+
 if (app.get('env') == 'development') {
   /* eslint-disable-next-line */
   app.use(require('connect-livereload')())
@@ -31,7 +39,9 @@ if (app.get('env') == 'development') {
     .watch([`${__dirname}/public`, `${__dirname}/views`])
 }
 
-app.set('io',socketService)
+app.set('trust proxy', 1)
+
+app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -49,6 +59,8 @@ app.use(
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       path: '/api',
+      sameSite: 'none',
+      secure: true,
     },
   })
 )
