@@ -37,8 +37,6 @@ app.use(
   })
 )
 
-app.set('trust proxy', 1)
-
 if (app.get('env') == 'development') {
   /* eslint-disable-next-line */
   app.use(require('connect-livereload')())
