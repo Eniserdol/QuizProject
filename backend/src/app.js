@@ -32,7 +32,7 @@ app.use(
 
 app.use(
   cors({
-    origin: process.env.NODE_ENV == 'production' ? 'https://backend-rhjopcioxq-ew.a.run.app' : true,
+    origin: process.env.NODE_ENV == 'production' ? 'https://frontend-rhjopcioxq-ew.a.run.app' : true,
     credentials: true,
   })
 )
