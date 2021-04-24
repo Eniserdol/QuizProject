@@ -32,10 +32,12 @@ app.use(
 
 app.use(
   cors({
-    origin: true,
+    origin: process.env.NODE_ENV == 'production' ? 'https://backend-rhjopcioxq-ew.a.run.app' : true,
     credentials: true,
   })
 )
+
+app.set('trust proxy', 1)
 
 if (app.get('env') == 'development') {
   /* eslint-disable-next-line */
