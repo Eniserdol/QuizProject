@@ -23,7 +23,12 @@ const accountRouter = require('./routes/account')
 
 const secretp = process.env.SECRET
 const app = express()
-app.use(helmet())
+app.use(
+  helmet()
+  // {
+  // referrerPolicy: { policy: 'no-referrer' },
+  // }
+)
 
 app.use(
   cors({
