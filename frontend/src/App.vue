@@ -64,8 +64,31 @@ export default {
   background: #1abc9c;
   color: chartreuse;
   font-weight: bold;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
 }
+
+.btn-success {
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color:  #3498db;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.results {
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #3498db;
+  color: #fff;
+  display: inline-block;
+  border-radius: 50px;
+  justify-content: center;
+  margin: 5px;
+}
+
 </style>

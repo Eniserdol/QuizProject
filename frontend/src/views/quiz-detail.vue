@@ -13,21 +13,48 @@ export default {
   },
   data() {
     return {
-      quiz: undefined
+      quiz: undefined,
+      score: false
     }
   },
   async created() {
     this.quiz = await this.fetchQuiz(this.$route.params.id)
   },
   methods: {
-    ...mapActions(['fetchQuiz'])
+    ...mapActions(['fetchQuiz']),
+    submit(event) {
+      // e.preventDefault()
+      console.log(this.$refs.form)
+      var data = new FormData(this.$refs.form)
+      var output = {}
+
+      for (const entry of data) {
+        output[entry[0].split('_')[1]] = entry[1]
+      }
+      event.preventDefault()
+
+      axios
+        .post(`/api/quizzes/${this.$route.params.id}/control`, output)
+        .then(({ data }) => {
+          let newScore = 0
+          Object.values(data).map(q => {
+            if (q) newScore++
+          })
+          this.score = newScore
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
   }
 }
 </script>
 <template lang="pug">
   .container(v-if="quiz")
     h3 Please complete your quiz
-          question-card(v-for="question in quiz.questions" :question='question')
-    Counter
-    input.btn.btn-success(type='submit', value='Submit')
+    form(ref="form" @submit="submit")
+      question-card(v-for="question in quiz.questions" :question='question' )
+      input.btn.btn-success(type='submit', value='Get Result/Submit')
+      .results
+        h4(v-if="score") score={{score}}
 </template>

@@ -14,9 +14,9 @@ export default {
 
   h2 Choices:
   ul
-    li(v-for="choice in question.choices")
-      input(type="radio" :name="`${question._id}-choice`")
-      |{{choice}}
+    li(v-for="(choice, index) in question.choices")
+      input(type="radio" :id="`q_${question._id}_choice_${index}`" :name="`q_${question._id}_choice`" :value="index")
+      label(:for="`q_${question._id}_choice_${index}`") {{choice}}
 </template>
 
 <style lang="scss" scoped></style>
