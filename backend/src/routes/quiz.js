@@ -41,6 +41,8 @@ router.post('/:id/control', async (req, res) => {
     if (q.choices[req.body[q._id]] == q.correct_answer) {
       a = true
     }
+  console.log(q.correct_answer)
+
     ans[q._id] = a
     return true
   })

@@ -15,6 +15,12 @@ const Question = require('./question')
 const answerArray = results => {
   return results.map(question => {
     const choices = question.incorrect_answers.concat(question.correct_answer)
+    for (let i = choices.length - 1; i > 0; i = -1) {
+      const j = Math.floor(Math.random() * i + 1)
+      const temp = choices[i]
+      choices[i] = choices[j]
+      choices[j] = temp
+    }
     return {
       text: question.question,
       choices,
@@ -25,6 +31,7 @@ const answerArray = results => {
     }
   })
 }
+
 async function anything() {
   await Question.remove({})
   await Quiz.remove({})
