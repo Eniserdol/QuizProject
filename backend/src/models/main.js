@@ -37,7 +37,9 @@ async function anything() {
   await Quiz.remove({})
   // await User.remove({})
 
-  const questionRequest1 = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple')
+  const questionRequest1 = await axios.get(
+    'https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple'
+  )
 
   const questionRequest2 = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple')
 

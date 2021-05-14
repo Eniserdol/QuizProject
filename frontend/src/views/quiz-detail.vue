@@ -14,7 +14,8 @@ export default {
   data() {
     return {
       quiz: undefined,
-      score: false
+      score: false,
+      submitted:false,
     }
   },
   async created() {
@@ -38,14 +39,18 @@ export default {
         .then(({ data }) => {
           let newScore = 0
           Object.values(data).map(q => {
-            if (q) newScore++
+            if (q) {newScore++}
           })
           this.score = newScore
+          this.submitted= true
         })
         .catch(error => {
           console.log(error)
         })
-    }
+    },
+
+
+
   }
 }
 </script>
@@ -53,8 +58,9 @@ export default {
   .container(v-if="quiz")
     h3 Please complete your quiz
     form(ref="form" @submit="submit")
-      question-card(v-for="question in quiz.questions" :question='question' )
+      question-card(v-for="question in quiz.questions" :question='question' :submitted="submitted" )
       input.btn.btn-success(type='submit', value='Get Result/Submit')
       .results
-        h4(v-if="score") score={{score}}
+        h4(v-if="submitted") score={{score}}
+
 </template>
