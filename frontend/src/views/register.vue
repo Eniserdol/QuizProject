@@ -49,12 +49,40 @@ export default {
         input(v-model="password" id="password" type="password" placeholder="Your password" required)
       input(type="submit" value="Register")
     div(v-if="backendError") {{ backendError }}
-    div Already have an account? <router-link to="/login">Log in</router-link>
+    div
+     h4 Already have an account? <router-link to="/login">Log in</router-link>
 </template>
 
 <style lang="scss" scoped>
-label {
-  display: block;
-  margin: 1rem 0;
+
+.register {
+  background: #d3e4e4;
+  border: 1px solid #42464b;
+  border-radius: 6px;
+  height: 400px;
+  margin: 20px auto 0;
+  width: 400px;
+  text-align: center;
 }
+label {
+  border-top: 1px solid #a6abaf;
+  border-bottom: 1px solid #a6abaf;
+  border-radius: 6px 6px 0 0;
+  display: block;
+  height: 43px;
+  padding-top: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.register input[type='submit'] {
+  background: #28d;
+  color: #fff;
+  cursor: pointer;
+  width: 50%;
+  padding: 5px;
+  font-size: 0.95em;
+}
+
+</style>
 </style>

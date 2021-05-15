@@ -16,15 +16,19 @@ export default {
 
 </script>
 <template lang="pug">
-.box
+.container
   h4 Category: {{question.category}}
-  h2 Question: {{decodeHtmlEntity(question.text)}}
-  h2 Choices:
-  ul
-    li(v-for="(choice, index) in question.choices")
+   .box
+     Label {{decodeHtmlEntity(question.text)}}
+  .choices
+    ul
+    div(v-for="(choice, index) in question.choices")
       input(type="radio" :id="`q_${question._id}_choice_${index}`" :name="`q_${question._id}_choice`" :value="index")
       label(:for="`q_${question._id}_choice_${index}`") {{choice}}
-    h4(v-if='submitted') Correct Answer= {{question.correct_answer}}
+  .correct
+    div(v-if='submitted') Correct Answer= {{question.correct_answer}}
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

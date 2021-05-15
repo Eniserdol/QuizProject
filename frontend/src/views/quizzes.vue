@@ -32,9 +32,13 @@ export default {
       quiz-card(v-for="quiz in quizzes" :quiz='quiz')
   </template>
 <style>
+
 .quizzes {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  margin: 20px auto 0;
+  text-align: center;
 }
+
 </style>

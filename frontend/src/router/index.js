@@ -17,7 +17,7 @@ export default function init(store) {
       {
         path: '/',
         name: 'Home',
-        component: Home
+        component: Login
       },
       {
         path: '/quizzes',
